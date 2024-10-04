@@ -56,7 +56,7 @@ async def send_messages():
             except Exception as e:
                 print(f"Не удалось отправить сообщение пользователю {name}: {e}")
             
-            time.sleep(120)  # Задержка в 2 секунды между отправками
+            time.sleep(300)  # Задержка в 2 секунды между отправками
 # Основной блок программы
 with client:
     client.loop.run_until_complete(send_messages())
