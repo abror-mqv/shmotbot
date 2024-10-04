@@ -5,13 +5,13 @@ from telethon.errors.rpcerrorlist import PeerFloodError, UserPrivacyRestrictedEr
 
 
 # Вводим ваши данные
-# api_id = '29382353' 
-# api_hash = '9868ad42d5b06b05da36c62e45115f02'  
-# phone_number = '996227722777' 
+api_id = '29382353' 
+api_hash = '9868ad42d5b06b05da36c62e45115f02'  
+phone_number = '996227722777' 
 
-api_id = 21866422      
-api_hash = 'aedfe8a16ea63ddd2b2ac1937de8918c'   
-phone_number = '+996559808243'  
+# api_id = 21866422      
+# api_hash = 'aedfe8a16ea63ddd2b2ac1937de8918c'   
+# phone_number = '+996559808243'  
 
 
 message_template = """Здравствуйте, {name}!
@@ -56,7 +56,7 @@ async def send_messages():
             except Exception as e:
                 print(f"Не удалось отправить сообщение пользователю {name}: {e}")
             
-            time.sleep(20)  # Задержка в 2 секунды между отправками
+            time.sleep(120)  # Задержка в 2 секунды между отправками
 # Основной блок программы
 with client:
     client.loop.run_until_complete(send_messages())
