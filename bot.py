@@ -5,13 +5,13 @@ from telethon.errors.rpcerrorlist import PeerFloodError, UserPrivacyRestrictedEr
 
 
 # Вводим ваши данные
-api_id = '29382353' 
-api_hash = '9868ad42d5b06b05da36c62e45115f02'  
-phone_number = '996227722777' 
+# api_id = '29382353' 
+# api_hash = '9868ad42d5b06b05da36c62e45115f02'  
+# phone_number = '996227722777' 
 
-# api_id = 21866422      
-# api_hash = 'aedfe8a16ea63ddd2b2ac1937de8918c'   
-# phone_number = '+996559808243'  
+api_id = 21866422      
+api_hash = 'aedfe8a16ea63ddd2b2ac1937de8918c'   
+phone_number = '+996559808243'  
 
 
 message_template = """Здравствуйте, {name}!
