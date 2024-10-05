@@ -2,7 +2,7 @@ import csv
 import time
 from telethon.sync import TelegramClient
 from telethon.errors.rpcerrorlist import PeerFloodError, UserPrivacyRestrictedError, InputUserDeactivatedError
-
+import random
 
 # Вводим ваши данные
 api_id = '29382353' 
@@ -14,7 +14,7 @@ phone_number = '996227722777'
 # phone_number = '+996559808243'  
 
 
-message_template = """Здравствуйте, {name}!
+message_template_1 = """Здравствуйте, {name}!
 
 Предлагаем услуги по пошиву одежды и текстиля в цехах Кыргызстана для оптовых покупателей. Гарантируем высокое качество, индивидуальный подход и конкурентные цены.
 
@@ -23,6 +23,44 @@ message_template = """Здравствуйте, {name}!
 С уважением,
 Талгат Абдыганиев
 """
+
+message_template_2 = """Приветствую, {name}!
+
+Предлагаем вам услуги по пошиву текстиля и одежды оптом на наших производствах в Кыргызстане. Обеспечиваем высокое качество, внимательное отношение к заказам и гибкие ценовые предложения.
+
+Будем рады обсудить ваш заказ. Напишите в ответ на это сообщение!
+
+С уважением,  
+Талгат Абдыганиев. 
+"""
+
+message_template_3 = """Здравствуйте, {name}!
+
+Мы специализируемся на пошиве одежды и текстильных изделий для оптовых покупателей в цехах Кыргызстана. Работаем с гарантией качества, предлагаем индивидуальный подход и выгодные цены.
+
+Готовы обсудить ваш заказ? Ответьте на это сообщение.
+
+С уважением,  
+Талгат Абдыганиев. 
+"""
+
+message_template_4 = """Добрый день, {name}!
+
+Наша команда занимается пошивом одежды и текстиля на заказ для оптовых клиентов в Кыргызстане. Мы предлагаем высокие стандарты качества, гибкость в работе и конкурентные цены.
+
+Хотите обсудить детали сотрудничества? Свяжитесь с нами в ответ на это сообщение.
+
+С уважением,  
+Талгат Абдыганиев. 
+"""
+
+
+messages = [
+    message_template_1, 
+    message_template_2, 
+    message_template_3, 
+    message_template_4
+]
 
 # Инициализация клиента Telethon
 client = TelegramClient(phone_number, api_id, api_hash)
@@ -40,7 +78,7 @@ async def send_messages():
                 print(f"Пропуск пользователя {name}, так как нет username.")
                 continue
             
-            message = message_template.format(name=name)
+            message = random.choice(messages).message_template.format(name=name)
 
             try:
                 print(f"Отправка сообщения для username {username} ({name})...")
@@ -56,7 +94,7 @@ async def send_messages():
             except Exception as e:
                 print(f"Не удалось отправить сообщение пользователю {name}: {e}")
             
-            time.sleep(300)  # Задержка в 2 секунды между отправками
+            time.sleep(600)  # Задержка в 2 секунды между отправками
 # Основной блок программы
 with client:
     client.loop.run_until_complete(send_messages())
