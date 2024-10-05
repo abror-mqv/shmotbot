@@ -78,7 +78,7 @@ async def send_messages():
                 print(f"Пропуск пользователя {name}, так как нет username.")
                 continue
             
-            message = random.choice(messages).message_template.format(name=name)
+            message = random.choice(messages).format(name=name)
 
             try:
                 print(f"Отправка сообщения для username {username} ({name})...")
@@ -94,7 +94,7 @@ async def send_messages():
             except Exception as e:
                 print(f"Не удалось отправить сообщение пользователю {name}: {e}")
             
-            time.sleep(600)  # Задержка в 2 секунды между отправками
+            time.sleep(random.randint(600,900) )
 # Основной блок программы
 with client:
     client.loop.run_until_complete(send_messages())
